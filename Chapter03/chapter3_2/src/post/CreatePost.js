@@ -6,6 +6,7 @@ export default function CreatePost ({ user }) {
       <div>Author: <b>{user}</b></div>
       <div>Title: <input type="text" /></div>
       <textarea />
+      <input type="submit" value="Create" />
     </div>
   )
 }
