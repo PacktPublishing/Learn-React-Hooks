@@ -20,9 +20,7 @@ function MyName () {
     currentHook = 0
 
     const [ enableFirstName, setEnableFirstName ] = useState(false)
-    const [ name, setName ] = enableFirstName
-        ? useState('')
-        : [ '', () => {} ]
+    const [ name, setName ] = useState('')
     const [ lastName, setLastName ] = useState('')
 
     function handleChange (evt) {
