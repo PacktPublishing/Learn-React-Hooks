@@ -51,7 +51,7 @@ export default function App () {
     })
 
     const [ state, dispatch ] = useReducer(appReducer, { user: '', posts: defaultPosts })
-    const { user, posts } = state
+    const { user } = state
     
     useEffect(() => {
         if (user) {
