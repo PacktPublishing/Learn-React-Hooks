@@ -5,5 +5,10 @@
   ],
   "users": [
     { "id": 1, "username": "Daniel Bugl", "password": "supersecure42" }
+  ],
+  "themes": [
+      { "id": 1, "primaryColor": "deepskyblue", "secondaryColor": "coral" },
+      { "id": 2, "primaryColor": "orchid", "secondaryColor": "mediumseagreen" },
+      { "id": 3, "primaryColor": "darkslategray", "secondaryColor": "slategray" }
   ]
 }
