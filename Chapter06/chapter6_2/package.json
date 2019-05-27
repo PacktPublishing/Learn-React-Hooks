@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "npx concurrently \"npm run start:server\" \"npm run start:client\"",
-    "start:server": "npx json-server --watch server/db.json --port 4000",
+    "start:server": "npx json-server --watch server/db.json --port 4000 --routes server/routes.json",
     "start:client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

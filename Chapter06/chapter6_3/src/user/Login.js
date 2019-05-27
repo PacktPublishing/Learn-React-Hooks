@@ -6,16 +6,25 @@ export default function Login () {
   const { dispatch } = useContext(StateContext)
   
   const [ username, setUsername ] = useState('')
+  const [ loginFailed, setLoginFailed ] = useState(false)
   const [ password, setPassword ] = useState('')
 
   const [ user, login ] = useResource((username, password) => ({
     url: `/login/${encodeURI(username)}/${encodeURI(password)}`,
-    method: 'get',
+    method: 'get'
   }))
 
   useEffect(() => {
-    if (user && user.data && user.data.length > 0) {
-      dispatch({ type: 'LOGIN', username: user.data[0].username })
+    if (user && user.data) {
+      if ( user.data.length > 0) {
+        setLoginFailed(false)
+        dispatch({ type: 'LOGIN', username: user.data[0].username })
+      } else {
+        setLoginFailed(true)
+      }
+    }
+    if (user && user.error) {
+      setLoginFailed(true)
     }
   }, [user])
 
@@ -32,6 +41,7 @@ export default function Login () {
       Username: <input type="text" value={username} onChange={handleUsername} />
       Password: <input type="password" value={password} onChange={handlePassword} />
       <input type="submit" value="Login" onClick={() => login(username, password)} disabled={username.length === 0} />
+      {loginFailed && <span style={{ color: 'red' }}>Invalid username or password</span>}
     </div>
   )
 }

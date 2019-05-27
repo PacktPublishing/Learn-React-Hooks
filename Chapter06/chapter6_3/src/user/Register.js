@@ -10,7 +10,7 @@ export default function Register () {
     const [ passwordRepeat, setPasswordRepeat ] = useState('')
 
     const [ user, register ] = useResource((username, password) => ({
-        url: `/users`,
+        url: '/users',
         method: 'post',
         data: { username, password }
     }))
