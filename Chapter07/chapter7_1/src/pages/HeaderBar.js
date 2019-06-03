@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import CreatePost from './post/CreatePost'
-import UserBar from './user/UserBar'
-import Header from './Header'
-import ChangeTheme from './ChangeTheme'
+import CreatePost from '../post/CreatePost'
+import UserBar from '../user/UserBar'
+import Header from '../Header'
+import ChangeTheme from '../ChangeTheme'
+import { ThemeContext, StateContext } from '../contexts'
 
-export default function HeaderBar ({ state, theme, setTheme }) {
-  const { user } = state
+export default function HeaderBar ({ setTheme }) {
+    const theme = useContext(ThemeContext)
+
+    const { state } = useContext(StateContext)
+    const { user } = state
+
     return (
         <div>
             <Header text="React Hooks Blog" />
