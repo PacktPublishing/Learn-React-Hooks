@@ -1,14 +1,58 @@
 {
   "posts": [
-    { "id": "react-hooks", "title": "React Hooks", "content": "The greatest thing since sliced bread!", "author": "Daniel Bugl" },
-    { "id": "react-fragments", "title": "Using React Fragments", "content": "Keeping the DOM tree clean!", "author": "Daniel Bugl" }
+    {
+      "id": "react-hooks",
+      "title": "React Hooks",
+      "content": "The greatest thing since sliced bread!",
+      "author": "Daniel Bugl"
+    },
+    {
+      "id": "react-fragments",
+      "title": "Using React Fragments",
+      "content": "Keeping the DOM tree clean!",
+      "author": "Daniel Bugl"
+    },
+    {
+      "title": "Test Post",
+      "content": "",
+      "author": "Daniel Bugl",
+      "id": "A3pq9rz"
+    },
+    {
+      "title": "test",
+      "content": "test",
+      "author": "Daniel Bugl",
+      "id": "ZNHTy1s"
+    },
+    {
+      "title": "test",
+      "content": "test",
+      "author": "Daniel Bugl",
+      "id": "EnQOX_e"
+    }
   ],
   "users": [
-    { "id": 1, "username": "Daniel Bugl", "password": "supersecure42" }
+    {
+      "id": 1,
+      "username": "Daniel Bugl",
+      "password": "supersecure42"
+    }
   ],
   "themes": [
-      { "id": 1, "primaryColor": "deepskyblue", "secondaryColor": "coral" },
-      { "id": 2, "primaryColor": "orchid", "secondaryColor": "mediumseagreen" },
-      { "id": 3, "primaryColor": "darkslategray", "secondaryColor": "slategray" }
+    {
+      "id": 1,
+      "primaryColor": "deepskyblue",
+      "secondaryColor": "coral"
+    },
+    {
+      "id": 2,
+      "primaryColor": "orchid",
+      "secondaryColor": "mediumseagreen"
+    },
+    {
+      "id": 3,
+      "primaryColor": "darkslategray",
+      "secondaryColor": "slategray"
+    }
   ]
 }

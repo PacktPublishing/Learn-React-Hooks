@@ -5,6 +5,7 @@ import { mount, route } from 'navi'
 import HomePage from './pages/HomePage'
 import HeaderBar from './pages/HeaderBar'
 import PostPage from './pages/PostPage'
+import FooterBar from './pages/FooterBar'
 import { ThemeContext, StateContext } from './contexts'
 
 const routes = mount({
@@ -85,6 +86,7 @@ export default function App () {
                         <HeaderBar setTheme={setTheme} />
                         <hr />
                         <View />
+                        <FooterBar />
                     </div>
                 </Router>
             </ThemeContext.Provider>

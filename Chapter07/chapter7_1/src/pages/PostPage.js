@@ -15,6 +15,7 @@ export default function PostPage ({ id }) {
                 ? <Post {...post.data} />
                 : 'Loading...'
             }
+            <hr />
         </div>
     )
 }
