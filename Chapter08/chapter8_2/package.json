@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@rehooks/window-size": "^1.0.2",
     "@use-hooks/axios": "^1.2.0",
     "axios": "^0.18.0",
     "concurrently": "^4.1.0",
