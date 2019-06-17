@@ -10,13 +10,14 @@ export default function CreatePost () {
   const { user } = state
 
   const { value: title, bindToInput: bindTitle } = useInput('')
-  const [ content, {
+  const [ undoContent, {
     set: setContent,
     undo,
     redo,
     canUndo,
     canRedo
   } ] = useUndo('')
+  const content = undoContent.present
 
   const [ post, createPost ] = useResource(({ title, content, author }) => ({
     url: '/posts',
@@ -45,7 +46,7 @@ export default function CreatePost () {
     <div>
       <div>Author: <b>{user}</b></div>
       <div>Title: <input type="text" value={title} {...bindTitle} /></div>
-      <textarea value={content.present} onChange={handleContent} />
+      <textarea value={content} onChange={handleContent} />
       <button onClick={undo} disabled={!canUndo}>Undo</button>
       <button onClick={redo} disabled={!canRedo}>Redo</button>
       <input type="submit" value="Create" onClick={handleCreate} />
