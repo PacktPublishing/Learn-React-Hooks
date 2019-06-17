@@ -16,7 +16,8 @@
     "react-hookedup-fork": "^0.1.2",
     "react-navi": "^0.12.7",
     "react-request-hook": "^2.0.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "use-undo": "^1.0.0"
   },
   "scripts": {
     "start": "npx concurrently \"npm run start:server\" \"npm run start:client\"",
