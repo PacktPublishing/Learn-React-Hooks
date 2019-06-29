@@ -1,0 +1,44 @@
+{
+  "name": "chapter10_3",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@rehooks/window-size": "^1.0.2",
+    "@use-hooks/axios": "^1.2.0",
+    "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
+    "http-proxy-middleware": "^0.19.1",
+    "json-server": "^0.14.2",
+    "navi": "^0.12.7",
+    "react": "^16.8.6",
+    "react-busy-indicator": "^1.0.0",
+    "react-dom": "^16.8.6",
+    "react-hookedup-fork": "^0.1.2",
+    "react-navi": "^0.12.7",
+    "react-request-hook": "^2.0.1",
+    "react-scripts": "2.1.8",
+    "use-debounce": "^2.1.0",
+    "use-undo": "^1.0.0"
+  },
+  "scripts": {
+    "lint": "npx eslint src/",
+    "start": "npx concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "npx json-server --watch server/db.json --port 4000 --routes server/routes.json",
+    "start:client": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^1.6.0"
+  }
+}
