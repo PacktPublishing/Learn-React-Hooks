@@ -23,7 +23,7 @@ export function useAPICreatePost () {
   }))
 }
 
-export function useAPITheme () {
+export function useAPIThemes () {
   return useResource(() => ({
     url: '/themes',
     method: 'get'
