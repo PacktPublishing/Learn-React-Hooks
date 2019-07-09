@@ -1,11 +1,11 @@
 import { renderHook } from '@testing-library/react-hooks'
-import { stateContextWrapper } from './testUtils'
+import { StateContextWrapper } from './testUtils'
 import useDispatch from './useDispatch'
 
 test('should use dispatch', () => {
   const { result } = renderHook(
     () => useDispatch(),
-    { wrapper: stateContextWrapper }
+    { wrapper: StateContextWrapper }
   )
 
   expect(typeof result.current).toBe('function')

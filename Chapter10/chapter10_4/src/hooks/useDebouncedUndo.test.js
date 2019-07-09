@@ -24,13 +24,23 @@ test('should update content immediately', () => {
 })
 
 test('should debounce undo history update', async () => {
-  const { result, waitForNextUpdate } = renderHook(() => useDebouncedUndo())
-  const [ , setter, undoRest ] = result.current
+  const originalError = console.error
+  console.error = jest.fn()
 
-  expect(undoRest.canUndo).toBe(false)
+  try {
+  const { result, waitForNextUpdate } = renderHook(() => useDebouncedUndo())
+  const [ , setter ] = result.current
+
   setter('test')
+
+  const [ , , undoRest ] = result.current
+  expect(undoRest.canUndo).toBe(false)
+
   await waitForNextUpdate()
   
   const [ , , newUndoRest ] = result.current
   expect(newUndoRest.canUndo).toBe(true)
+} finally {
+  console.error = originalError
+}
 })
