@@ -1,26 +1,113 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './Header'
+import AddTodo from './AddTodo'
+import TodoList from './TodoList'
+import TodoFilter from './TodoFilter'
+import StateContext from './StateContext'
+
+const generateID = () => {
+  const S4 = () => (((1+Math.random())*0x10000)|0).toString(16).substring(1)
+  return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4())
 }
 
-export default App;
+export default class App extends React.Component {
+  constructor (props) {
+    super(props)
+    
+    this.state = { todos: [], filteredTodos: [], filter: 'all' }
+
+    this.fetchTodos = this.fetchTodos.bind(this)
+    this.addTodo = this.addTodo.bind(this)
+    this.toggleTodo = this.toggleTodo.bind(this)
+    this.removeTodo = this.removeTodo.bind(this)
+    this.filterTodos = this.filterTodos.bind(this)
+  }
+
+  fetchTodos () {
+    this.setState({ todos: [
+      { id: generateID(), title: 'Write React Hooks book', completed: true },
+      { id: generateID(), title: 'Promote book', completed: false },
+    ] })
+    this.filterTodos()
+  }
+
+  componentDidMount () {
+    this.fetchTodos()
+  }
+
+  addTodo (title) {
+    const { todos } = this.state
+
+    const newTodo = { id: generateID(), title, completed: false }
+
+    this.setState({ todos: [ newTodo, ...todos ] })
+    this.filterTodos()
+  }
+
+  toggleTodo (id) {
+    const { todos } = this.state
+
+    const newTodos = todos.map(t => {
+      if (t.id === id) {
+        return { ...t, completed: !t.completed }
+      }
+      return t
+    }, [])
+
+    this.setState({ todos: newTodos })
+    this.filterTodos()
+  }
+
+  removeTodo (id) {
+    const { todos } = this.state
+
+    const newTodos = todos.filter(t => {
+      if (t.id === id) {
+        return false
+      }
+      return true
+    })
+
+    this.setState({ todos: newTodos })
+    this.filterTodos()
+  }
+
+  applyFilter (todos, filter) {
+    switch (filter) {
+      case 'active':
+        return todos.filter(t => t.completed === false)
+
+      case 'completed':
+        return todos.filter(t => t.completed === true)
+
+      default:
+      case 'all':
+        return todos
+    }
+  }
+
+  filterTodos (filter) {
+    this.setState(({ todos }) => ({
+      filter,
+      filteredTodos: this.applyFilter(todos, filter)
+    }))
+  }
+
+  render () {
+    const { filter, filteredTodos } = this.state
+
+    return (
+      <StateContext.Provider value={filteredTodos}>
+        <div style={{ width: 400 }}>
+          <Header />
+          <AddTodo addTodo={this.addTodo} />
+          <hr />
+          <TodoList toggleTodo={this.toggleTodo} removeTodo={this.removeTodo} />
+          <hr />
+          <TodoFilter filter={filter} filterTodos={this.filterTodos} />
+        </div>
+      </StateContext.Provider>
+    )
+  }
+}
