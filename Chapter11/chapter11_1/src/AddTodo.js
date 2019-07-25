@@ -20,6 +20,7 @@ export default class AddTodo extends React.Component {
   handleAdd () {
     const { input } = this.state
     const { addTodo } = this.props
+
     if (input) {
       addTodo(input)
       this.setState({ input: '' })
@@ -37,8 +38,21 @@ export default class AddTodo extends React.Component {
 
     return (
       <div>
-        <input value={input} onKeyDown={this.handleKeyDown} onChange={this.handleInput} type="text" style={{ width: 350, height: 15 }} placeholder="enter new task..." />
-        <button disabled={!input} onClick={this.handleAdd} style={{ float: 'right', marginTop: 2 }}>add</button>
+        <input
+          type="text"
+          placeholder="enter new task..."
+          style={{ width: 350, height: 15 }}
+          value={input}
+          onKeyDown={this.handleKeyDown}
+          onChange={this.handleInput}
+        />
+        <button
+          style={{ float: 'right', marginTop: 2 }}
+          disabled={!input}
+          onClick={this.handleAdd} 
+        >
+          add
+        </button>
       </div>
     )
   }

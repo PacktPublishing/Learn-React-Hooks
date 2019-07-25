@@ -24,16 +24,16 @@ export default class App extends React.Component {
     this.filterTodos = this.filterTodos.bind(this)
   }
 
+  componentDidMount () {
+    this.fetchTodos()
+  }
+
   fetchTodos () {
     this.setState({ todos: [
       { id: generateID(), title: 'Write React Hooks book', completed: true },
-      { id: generateID(), title: 'Promote book', completed: false },
+      { id: generateID(), title: 'Promote book', completed: false }
     ] })
     this.filterTodos()
-  }
-
-  componentDidMount () {
-    this.fetchTodos()
   }
 
   addTodo (title) {

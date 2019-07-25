@@ -20,10 +20,12 @@ export default class TodoItem extends React.Component {
 
   render () {
     const { title, completed } = this.props
-    return <div style={{ width: 400, height: 25 }}>
-      <input type="checkbox" checked={completed} onChange={this.handleToggle} />
-      {title}
-      <button style={{ float: 'right' }} onClick={this.handleRemove}>x</button>
-    </div>
+    return (
+      <div style={{ width: 400, height: 25 }}>
+        <input type="checkbox" checked={completed} onChange={this.handleToggle} />
+        {title}
+        <button style={{ float: 'right' }} onClick={this.handleRemove}>x</button>
+      </div>
+    )
   }
 }
