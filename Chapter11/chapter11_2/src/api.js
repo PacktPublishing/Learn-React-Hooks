@@ -4,11 +4,9 @@ export const generateID = () => {
 }
 
 export const fetchAPITodos = () =>
-    new Promise((resolve) =>
-        setTimeout(() => resolve({
-            todos: [
-                { id: generateID(), title: 'Write React Hooks book', completed: true },
-                { id: generateID(), title: 'Promote book', completed: false }
-            ]
-        }), 100)
-    )
+  new Promise((resolve) =>
+    setTimeout(() => resolve([
+      { id: generateID(), title: 'Write React Hooks book', completed: true },
+      { id: generateID(), title: 'Promote book', completed: false }
+    ]), 100)
+  )
