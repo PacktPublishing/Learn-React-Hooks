@@ -1,59 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default class AddTodo extends React.Component {
-  constructor (props) {
-    super(props)
+export default function AddTodo ({ addTodo }) {
+  const [ input, setInput ] = useState('')
 
-    this.state = {
-      input: ''
-    }
-
-    this.handleInput = this.handleInput.bind(this)
-    this.handleAdd = this.handleAdd.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
+  function handleInput (e) {
+    setInput(e.target.value)
   }
 
-  handleInput (e) {
-    this.setState({ input: e.target.value })
-  }
-
-  handleAdd () {
-    const { input } = this.state
-    const { addTodo } = this.props
-
+  function handleAdd () {
     if (input) {
       addTodo(input)
-      this.setState({ input: '' })
+      setInput('')
     }
   }
 
-  handleKeyDown (e) {
+  function handleKeyDown (e) {
     if (e.key === 'Enter') {
-      this.handleAdd()
+      handleAdd()
     }
   }
 
-  render () {
-    const { input } = this.state
-
-    return (
-      <div>
-        <input
-          type="text"
-          placeholder="enter new task..."
-          style={{ width: 350, height: 15 }}
-          value={input}
-          onKeyDown={this.handleKeyDown}
-          onChange={this.handleInput}
-        />
-        <button
-          style={{ float: 'right', marginTop: 2 }}
-          disabled={!input}
-          onClick={this.handleAdd} 
-        >
-          add
-        </button>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="enter new task..."
+        style={{ width: 350, height: 15 }}
+        value={input}
+        onKeyDown={handleKeyDown}
+        onChange={handleInput}
+      />
+      <button
+        style={{ float: 'right', marginTop: 2 }}
+        disabled={!input}
+        onClick={handleAdd}
+      >
+        add
+      </button>
+    </div>
+  )
 }
