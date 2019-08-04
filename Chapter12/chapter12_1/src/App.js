@@ -1,4 +1,5 @@
-import React, { useReducer, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
+import { createStore } from 'redux'
 
 import Header from './Header'
 import AddTodo from './AddTodo'
@@ -9,8 +10,16 @@ import StateContext from './StateContext'
 import { fetchAPITodos } from './api'
 import appReducer from './reducers'
 
+const initialState = { todos: [], filter: 'all' }
+const store = createStore(appReducer, initialState)
+const { dispatch } = store
+
 export default function App () {
-  const [ state, dispatch ] = useReducer(appReducer, { todos: [], filter: 'all' })
+  const [ state, setState ] = useState(initialState)
+  useEffect(() => {
+    const unsubscribe = store.subscribe(() => setState(store.getState()))
+    return unsubscribe
+  }, [])
 
   useEffect(() => {
     fetchAPITodos().then((todos) =>
