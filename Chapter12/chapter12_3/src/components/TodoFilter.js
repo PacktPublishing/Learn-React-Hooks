@@ -1,8 +1,14 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-function TodoFilterItem ({ name, filterTodos, filter = 'all' }) {
+import { filterTodos } from '../actions'
+
+function TodoFilterItem ({ name }) {
+  const dispatch = useDispatch()
+  const filter = useSelector(state => state.filter)
+
   function handleFilter () {
-    filterTodos(name)
+    dispatch(filterTodos(name))
   }
 
   const style = {

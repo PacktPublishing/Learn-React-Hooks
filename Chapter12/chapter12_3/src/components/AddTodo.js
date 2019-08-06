@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-export default function AddTodo ({ addTodo }) {
+import { addTodo } from '../actions'
+
+export default function AddTodo () {
+  const dispatch = useDispatch()
   const [ input, setInput ] = useState('')
 
   function handleInput (e) {
@@ -9,7 +13,7 @@ export default function AddTodo ({ addTodo }) {
 
   function handleAdd () {
     if (input) {
-      addTodo(input)
+      dispatch(addTodo(input))
       setInput('')
     }
   }

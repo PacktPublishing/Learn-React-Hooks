@@ -1,23 +1,28 @@
 import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { fetchTodos } from '../actions'
 
 import Header from './Header'
-import ConnectedAddTodo from '../containers/ConnectedAddTodo'
-import ConnectedTodoList from '../containers/ConnectedTodoList'
-import ConnectedTodoFilter from '../containers/ConnectedTodoFilter'
+import AddTodo from './AddTodo'
+import TodoList from './TodoList'
+import TodoFilter from './TodoFilter'
 
-export default function App ({ fetchTodos }) {
+export default function App () {
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    fetchTodos()
-  }, [ fetchTodos ])
+    dispatch(fetchTodos())
+  }, [ dispatch ])
 
   return (
     <div style={{ width: 400 }}>
       <Header />
-      <ConnectedAddTodo />
+      <AddTodo />
       <hr />
-      <ConnectedTodoList />
+      <TodoList />
       <hr />
-      <ConnectedTodoFilter />
+      <TodoFilter />
     </div>
   )
 }
