@@ -4,9 +4,13 @@ import { createSelector } from 'reselect'
 
 import TodoItem from './TodoItem'
 
+const todosSelector = state => state.todos
+const filterSelector = state => state.filter
+
 const selectFilteredTodos = createSelector(
-  (state) => ({ todos: state.todos, filter: state.filter }),
-  ({ todos, filter }) => {
+  todosSelector,
+  filterSelector,
+  (todos, filter) => {
     switch (filter) {
       case 'active':
         return todos.filter(t => t.completed === false)
