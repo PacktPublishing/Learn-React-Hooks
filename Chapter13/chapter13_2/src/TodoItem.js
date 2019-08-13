@@ -1,7 +1,10 @@
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 
-export default inject('todoStore')(observer(function TodoItem ({ title, completed, id, todoStore }) {
+import { useTodoStore } from './hooks'
+
+export default function TodoItem ({ title, completed, id }) {
+  const todoStore = useTodoStore()
+  
   function handleToggle () {
     todoStore.toggleTodo(id)
   }
@@ -17,4 +20,4 @@ export default inject('todoStore')(observer(function TodoItem ({ title, complete
       <button style={{ float: 'right' }} onClick={handleRemove}>x</button>
     </div>
   )
-}))
+}

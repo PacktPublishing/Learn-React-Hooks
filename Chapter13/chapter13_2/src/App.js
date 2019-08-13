@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
-import { inject, observer } from 'mobx-react'
+
+import { useTodoStore } from './hooks'
 
 import Header from './Header'
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 import TodoFilter from './TodoFilter'
 
-export default inject('todoStore')(observer(function App ({ todoStore }) {
+export default function App () {
+  const todoStore = useTodoStore()
   useEffect(() => {
     todoStore.fetch()
   }, [ todoStore ])
@@ -21,4 +23,4 @@ export default inject('todoStore')(observer(function App ({ todoStore }) {
       <TodoFilter />
     </div>
   )
-}))
+}

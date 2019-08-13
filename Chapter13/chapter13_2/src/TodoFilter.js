@@ -1,26 +1,30 @@
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+import { useObserver } from 'mobx-react'
 
-const TodoFilterItem = inject('todoStore')(observer(function TodoFilterItemWrapped ({ name, todoStore }) {
+import { useTodoStore } from './hooks'
+
+const TodoFilterItem = function TodoFilterItemWrapped ({ name }) {
+  const todoStore = useTodoStore()
+  
   function handleFilter () {
     todoStore.filterTodos(name)
   }
 
-  const style = {
+  const style = useObserver(() => ({
     color: 'blue',
     cursor: 'pointer',
     fontWeight: (todoStore.filter === name) ? 'bold' : 'normal'
-  }
+  }))
 
   return <span style={style} onClick={handleFilter}>{name}</span>
-}))
+}
 
-export default function TodoFilter (props) {
+export default function TodoFilter () {
   return (
     <div>
-      <TodoFilterItem {...props} name="all" />{' / '}
-      <TodoFilterItem {...props} name="active" />{' / '}
-      <TodoFilterItem {...props} name="completed" />
+      <TodoFilterItem name="all" />{' / '}
+      <TodoFilterItem name="active" />{' / '}
+      <TodoFilterItem name="completed" />
     </div>
   )
 }
