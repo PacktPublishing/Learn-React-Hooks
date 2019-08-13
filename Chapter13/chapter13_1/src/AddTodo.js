@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { inject, observer } from 'mobx-react'
 
-export default function AddTodo ({ addTodo }) {
+export default inject('todoStore')(observer(function AddTodo ({ todoStore }) {
   const [ input, setInput ] = useState('')
 
   function handleInput (e) {
@@ -9,7 +10,7 @@ export default function AddTodo ({ addTodo }) {
 
   function handleAdd () {
     if (input) {
-      addTodo(input)
+      todoStore.addTodo(input)
       setInput('')
     }
   }
@@ -39,4 +40,4 @@ export default function AddTodo ({ addTodo }) {
       </button>
     </div>
   )
-}
+}))
