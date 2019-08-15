@@ -3,7 +3,7 @@ import { useObserver } from 'mobx-react'
 
 import { useTodoStore } from './hooks'
 
-const TodoFilterItem = function TodoFilterItemWrapped ({ name }) {
+function TodoFilterItem ({ name }) {
   const todoStore = useTodoStore()
   
   function handleFilter () {

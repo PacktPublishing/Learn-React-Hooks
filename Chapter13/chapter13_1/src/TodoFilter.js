@@ -15,12 +15,12 @@ const TodoFilterItem = inject('todoStore')(observer(function TodoFilterItemWrapp
   return <span style={style} onClick={handleFilter}>{name}</span>
 }))
 
-export default function TodoFilter (props) {
+export default function TodoFilter () {
   return (
     <div>
-      <TodoFilterItem {...props} name="all" />{' / '}
-      <TodoFilterItem {...props} name="active" />{' / '}
-      <TodoFilterItem {...props} name="completed" />
+      <TodoFilterItem name="all" />{' / '}
+      <TodoFilterItem name="active" />{' / '}
+      <TodoFilterItem name="completed" />
     </div>
   )
 }
