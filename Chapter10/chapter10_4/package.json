@@ -10,9 +10,9 @@
     "http-proxy-middleware": "^0.19.1",
     "json-server": "^0.14.2",
     "navi": "^0.12.7",
-    "react": "^16.8.6",
+    "react": "^16.9.0",
     "react-busy-indicator": "^1.0.0",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.9.0",
     "react-hookedup-fork": "^0.1.2",
     "react-navi": "^0.12.7",
     "react-request-hook": "^2.0.1",
@@ -41,6 +41,6 @@
   "devDependencies": {
     "@testing-library/react-hooks": "^1.0.4",
     "eslint-plugin-react-hooks": "^1.6.0",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.9.0"
   }
 }
