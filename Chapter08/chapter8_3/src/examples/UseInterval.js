@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useInterval } from 'react-hookedup-fork'
+import { useInterval } from 'react-hookedup'
 
 export default function UseInterval () {
   const [ count, setCount ] = useState(0)

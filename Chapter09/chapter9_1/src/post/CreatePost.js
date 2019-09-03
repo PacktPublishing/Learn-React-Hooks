@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useInput } from 'react-hookedup-fork'
+import { useInput } from 'react-hookedup'
 import useUndo from 'use-undo'
 import { useDebouncedCallback } from 'use-debounce'
 import { useNavigation } from 'react-navi'

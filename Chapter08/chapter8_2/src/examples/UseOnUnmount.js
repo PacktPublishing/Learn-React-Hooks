@@ -1,5 +1,5 @@
 import React from 'react'
-import { useOnUnmount } from 'react-hookedup-fork'
+import { useOnUnmount } from 'react-hookedup'
 
 export default function UseOnUnmount () {
     useOnUnmount(() => console.log('unmounting'))

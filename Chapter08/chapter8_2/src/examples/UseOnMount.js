@@ -1,5 +1,5 @@
 import React from 'react'
-import { useOnMount } from 'react-hookedup-fork'
+import { useOnMount } from 'react-hookedup'
 
 export default function UseOnMount () {
     useOnMount(() => console.log('mounted'))

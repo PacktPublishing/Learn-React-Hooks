@@ -1,5 +1,5 @@
 import React from 'react'
-import { useOnMount, useOnUnmount } from 'react-hookedup-fork'
+import { useOnMount, useOnUnmount } from 'react-hookedup'
 
 export default function UseLifecycleHooksSeparate () {
     useOnMount(() => console.log('separate lifecycle mounted'))

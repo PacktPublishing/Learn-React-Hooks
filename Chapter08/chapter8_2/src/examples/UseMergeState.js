@@ -1,5 +1,5 @@
 import React from 'react'
-import { useMergeState } from 'react-hookedup-fork'
+import { useMergeState } from 'react-hookedup'
 
 export default function UseMergeState () {
   const { state, setState } = useMergeState({ loaded: true, counter: 0 })

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHover } from 'react-hookedup-fork'
+import { useHover } from 'react-hookedup'
 
 export default function UseHover () {
   const { hovered, bind } = useHover()

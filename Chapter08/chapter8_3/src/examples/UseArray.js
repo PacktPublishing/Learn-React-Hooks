@@ -1,5 +1,5 @@
 import React from 'react'
-import { useArray } from 'react-hookedup-fork'
+import { useArray } from 'react-hookedup'
 
 export default function UseArray () {
   const { value, add, clear, removeIndex } = useArray(['one', 'two', 'three'])

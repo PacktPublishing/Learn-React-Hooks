@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { usePrevious } from 'react-hookedup-fork'
+import { usePrevious } from 'react-hookedup'
 
 export default function UsePrevious () {
   const [ count, setCount ] = useState(0)

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useInput } from 'react-hookedup-fork'
+import { useInput } from 'react-hookedup'
 import { useNavigation } from 'react-navi'
 import { useUserState, useDispatch, useDebouncedUndo, useAPICreatePost } from '../hooks'
 

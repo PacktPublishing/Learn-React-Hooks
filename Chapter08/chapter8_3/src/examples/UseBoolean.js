@@ -1,5 +1,5 @@
 import React from 'react'
-import { useBoolean } from 'react-hookedup-fork'
+import { useBoolean } from 'react-hookedup'
 
 export default function UseBoolean () {
   const { toggle, value } = useBoolean(false)

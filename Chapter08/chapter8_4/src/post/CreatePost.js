@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { useInput } from 'react-hookedup-fork'
+import { useInput } from 'react-hookedup'
 import { useNavigation } from 'react-navi'
 import { useResource } from 'react-request-hook'
 import { StateContext } from '../contexts'

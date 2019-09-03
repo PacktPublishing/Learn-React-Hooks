@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useTimeout } from 'react-hookedup-fork'
+import { useTimeout } from 'react-hookedup'
 
 export default function UseTimeout () {
   const [ ready, setReady ] = useState(false)

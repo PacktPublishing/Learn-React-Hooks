@@ -13,7 +13,7 @@
     "react": "^16.9.0",
     "react-busy-indicator": "^1.0.0",
     "react-dom": "^16.9.0",
-    "react-hookedup-fork": "^0.1.2",
+    "react-hookedup": "^0.1.1",
     "react-navi": "^0.12.7",
     "react-request-hook": "^2.0.1",
     "react-scripts": "2.1.8",

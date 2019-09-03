@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useOnlineStatus, usePrevious } from 'react-hookedup-fork'
+import { useOnlineStatus, usePrevious } from 'react-hookedup'
 
 export default function App () {
     const { online } = useOnlineStatus()

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLifecycleHooks } from 'react-hookedup-fork'
+import { useLifecycleHooks } from 'react-hookedup'
 
 export default function UseLifecycleHooks () {
     useLifecycleHooks({

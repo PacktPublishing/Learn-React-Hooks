@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useInput } from 'react-hookedup-fork'
+import { useInput } from 'react-hookedup'
 import { useDispatch, useAPILogin } from '../hooks'
 
 export default function Login () {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useFocus } from 'react-hookedup-fork'
+import { useFocus } from 'react-hookedup'
 
 export default function UseFocus () {
   const { focused, bind } = useFocus()

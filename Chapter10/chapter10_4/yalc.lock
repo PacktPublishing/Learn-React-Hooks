@@ -1,7 +1,7 @@
 {
   "version": "v1",
   "packages": {
-    "react-hookedup-fork": {
+    "react-hookedup": {
       "signature": "012cc7bc5cda35061a2f09900749cf3b",
       "file": true,
       "replaced": "^0.1.0"

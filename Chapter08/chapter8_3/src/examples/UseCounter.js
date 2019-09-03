@@ -1,5 +1,5 @@
 import React from 'react'
-import { useCounter } from 'react-hookedup-fork'
+import { useCounter } from 'react-hookedup'
 
 export default function UseCounter () {
   const { value, increase, decrease } = useCounter(0, { upperLimit: 3, lowerLimit: 0, loop: true })
