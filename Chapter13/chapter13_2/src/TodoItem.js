@@ -1,23 +1,27 @@
 import React from 'react'
+import { useObserver } from 'mobx-react'
 
 import { useTodoStore } from './hooks'
 
-export default function TodoItem ({ title, completed, id }) {
+export default function TodoItem ({ item }) {
   const todoStore = useTodoStore()
   
-  function handleToggle () {
-    todoStore.toggleTodo(id)
-  }
+  return useObserver(() => {
+    function handleToggle () {
+      todoStore.toggleTodo(item.id)
+    }
 
-  function handleRemove () {
-    todoStore.removeTodo(id)
-  }
+    function handleRemove () {
+      todoStore.removeTodo(item.id)
+    }
 
-  return (
-    <div style={{ width: 400, height: 25 }}>
-      <input type="checkbox" checked={completed} onChange={handleToggle} />
-      {title}
-      <button style={{ float: 'right' }} onClick={handleRemove}>x</button>
-    </div>
-  )
+    const { title, completed } = item
+    return (
+      <div style={{ width: 400, height: 25 }}>
+        <input type="checkbox" checked={completed} onChange={handleToggle} />
+        {title}
+        <button style={{ float: 'right' }} onClick={handleRemove}>x</button>
+      </div>
+    )
+  })
 }

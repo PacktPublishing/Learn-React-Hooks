@@ -5,6 +5,6 @@ import TodoItem from './TodoItem'
 
 export default inject('todoStore')(observer(function TodoList ({ todoStore }) {
   return todoStore.filteredTodos.map(item =>
-    <TodoItem {...item} key={item.id} />
+    <TodoItem key={item.id} item={item} />
   )
 }))

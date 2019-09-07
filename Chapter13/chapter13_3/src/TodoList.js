@@ -10,7 +10,7 @@ export default function TodoList () {
 
   return useObserver(() =>
     todoStore.filteredTodos.map(item =>
-      <TodoItem {...item} key={item.id} />
+      <TodoItem key={item.id} item={item} />
     )
   )
 }
