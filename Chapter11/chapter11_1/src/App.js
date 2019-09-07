@@ -83,10 +83,10 @@ export default class App extends React.Component {
     }
   }
 
-  filterTodos (filter) {
-    this.setState(({ todos }) => ({
-      filter,
-      filteredTodos: this.applyFilter(todos, filter)
+  filterTodos (filterArg) {
+    this.setState(({ todos, filter }) => ({
+      filter: filterArg || filter,
+      filteredTodos: this.applyFilter(todos, filterArg || filter)
     }))
   }
 

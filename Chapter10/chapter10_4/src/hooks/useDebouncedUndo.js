@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import useUndo from 'use-undo'
 import { useDebouncedCallback } from 'use-debounce'
 
@@ -17,10 +17,10 @@ export default function useDebouncedUndo (timeout = 200) {
     setInput(undoContent.present)
   }, [cancelDebounce, undoContent])
 
-  function setter (value) {
+  const setter = useCallback(function setterFn (value) {
     setInput(value)
     setDebounce(value)
-  }
+  }, [ setInput, setDebounce ])
 
   return [ content, setter, undoRest ]
 }
