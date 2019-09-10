@@ -7,8 +7,9 @@ for ch in *; do
     test -d "$ex" || continue
     echo "entering $ex"
     cd $ex
-    npm test -- --watchAll=false
+    npm run test:nowatch
     cd ..
+    echo
   done
   cd ..
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"

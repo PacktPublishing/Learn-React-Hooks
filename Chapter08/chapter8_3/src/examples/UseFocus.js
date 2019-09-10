@@ -6,7 +6,7 @@ export default function UseFocus () {
 
   return (
     <div>
-      <input {...bind} value={focused ? 'focused' : 'not focused'} />
+      <input {...bind} readOnly value={focused ? 'focused' : 'not focused'} />
     </div>
   )
 }

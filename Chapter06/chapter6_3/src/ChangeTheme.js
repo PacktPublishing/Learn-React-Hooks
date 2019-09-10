@@ -26,8 +26,8 @@ export default function ChangeTheme ({ theme, setTheme }) {
     <div>
       Change theme:
       {isLoading && ' Loading themes...'}
-      {data && data.map(t =>
-        <ThemeItem theme={t} active={isActive(t)} onClick={() => setTheme(t)} />
+      {data && data.map((t, i) =>
+        <ThemeItem key={'theme-' + i} theme={t} active={isActive(t)} onClick={() => setTheme(t)} />
       )}
     </div>
   )

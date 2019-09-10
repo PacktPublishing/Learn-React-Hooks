@@ -9,8 +9,8 @@ export default function PostList () {
   
   return (
     <div>
-      {posts.map(p => (
-        <React.Fragment>
+      {posts.map((p, i) => (
+        <React.Fragment key={'post-' + i}>
           <Post {...p} />
           <hr />
         </React.Fragment>
