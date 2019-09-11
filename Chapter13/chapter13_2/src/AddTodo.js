@@ -24,22 +24,20 @@ export default function AddTodo () {
   }
 
   return (
-    <div>
+    <form onSubmit={e => { e.preventDefault(); handleAdd() }}>
       <input
         type="text"
         placeholder="enter new task..."
         style={{ width: 350, height: 15 }}
         value={input}
-        onKeyDown={handleKeyDown}
         onChange={handleInput}
       />
-      <button
+      <input
+        type="submit"
         style={{ float: 'right', marginTop: 2 }}
         disabled={!input}
-        onClick={handleAdd}
-      >
-        add
-      </button>
-    </div>
+        value="add"
+      />
+    </form>
   )
 }
