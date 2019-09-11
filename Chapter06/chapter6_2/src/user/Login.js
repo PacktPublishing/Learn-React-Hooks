@@ -11,10 +11,12 @@ export default function Login () {
   }
 
   return (
-    <div>
-      Username: <input type="text" value={username} onChange={handleUsername} />
-      Password: <input type="password" />
-      <input type="submit" value="Login" onClick={() => dispatch({ type: 'LOGIN', username })} disabled={username.length === 0} />
-    </div>
+    <form onSubmit={e => { e.preventDefault(); dispatch({ type: 'LOGIN', username }) }}>
+      <label for="login-username">Username:</label>
+      <input type="text" value={username} onChange={handleUsername} name="login-username" id="login-username" />
+      <label for="login-password">Password:</label>
+      <input type="password" name="login-password" id="login-password" />
+      <input type="submit" value="Login" disabled={username.length === 0} />
+    </form>
   )
 }

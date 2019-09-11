@@ -31,11 +31,14 @@ export default function CreatePost () {
   }
 
   return (
-    <div>
+    <form onSubmit={e => { e.preventDefault(); handleCreate() }}>
       <div>Author: <b>{user}</b></div>
-      <div>Title: <input type="text" value={title} {...bindTitle} /></div>
+      <div>
+        <label for="create-title">Title:</label>
+        <input type="text" value={title} {...bindTitle} name="create-title" id="create-title" />
+      </div>
       <textarea value={content} {...bindContent} />
-      <input type="submit" value="Create" onClick={handleCreate} />
-    </div>
+      <input type="submit" value="Create" />
+    </form>
   )
 }

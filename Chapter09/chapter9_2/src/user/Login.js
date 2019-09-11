@@ -30,11 +30,13 @@ export default function Login () {
   }, [dispatch, user])
 
   return (
-    <div>
-      Username: <input type="text" value={username} {...bindUsername} />
-      Password: <input type="password" value={password} {...bindPassword} />
-      <input type="submit" value="Login" onClick={() => login(username, password)} disabled={username.length === 0} />
+    <form onSubmit={e => { e.preventDefault(); login(username, password) }}>
+      <label for="login-username">Username:</label>
+      <input type="text" {...bindUsername} name="login-username" id="login-username" />
+      <label for="login-password">Password:</label>
+      <input type="password" {...bindPassword} name="login-password" id="login-password" />
+      <input type="submit" value="Login" disabled={username.length === 0} />
       {loginFailed && <span style={{ color: 'red' }}>Invalid username or password</span>}
-    </div>
+    </form>
   )
 }

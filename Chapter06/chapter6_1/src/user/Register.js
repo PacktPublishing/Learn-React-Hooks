@@ -21,11 +21,14 @@ export default function Register () {
     }
 
     return (
-        <div>
-            Username: <input type="text" value={username} onChange={handleUsername} />
-            Password: <input type="password" value={password} onChange={handlePassword} />
-            Repeat password: <input type="password" value={passwordRepeat} onChange={handlePasswordRepeat} />
-            <input type="submit" value="Register" onClick={() => dispatch({ type: 'REGISTER', username })} disabled={username.length === 0 || password.length === 0 || password !== passwordRepeat} />
-        </div>
+        <form onSubmit={e => { e.preventDefault(); dispatch({ type: 'REGISTER', username }) }}>
+            <label for="register-username">Username:</label>
+            <input type="text" value={username} onChange={handleUsername} name="register-username" id="register-username" />
+            <label for="register-password">Password:</label>
+            <input type="password" value={password} onChange={handlePassword} name="register-password" id="register-password" />
+            <label for="register-password-repeat">Repeat password:</label>
+            <input type="password" value={passwordRepeat} onChange={handlePasswordRepeat} name="register-password-repeat" id="register-password-repeat" />
+            <input type="submit" value="Register" disabled={username.length === 0 || password.length === 0 || password !== passwordRepeat} />
+        </form>
     )
 }

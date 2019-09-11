@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Logout ({ user, setUser }) {
   return (
-    <div>
+    <form onSubmit={e => { e.preventDefault(); setUser(false) }}>
       Logged in as: <b>{user}</b>
-      <input type="submit" value="Logout" onClick={() => setUser(false)} />
-    </div>
+      <input type="submit" value="Logout" />
+    </form>
   )
 }

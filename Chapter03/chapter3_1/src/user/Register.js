@@ -2,11 +2,14 @@ import React from 'react'
 
 export default function Register () {
   return (
-    <div>
-      Username: <input type="text" />
-      Password: <input type="password" />
-      Repeat password: <input type="password" />
+    <form onSubmit={e => e.preventDefault()}>
+      <label for="register-username">Username:</label>
+      <input type="text" name="register-username" id="register-username" />
+      <label for="register-password">Password:</label>
+      <input type="password" name="register-password" id="register-password" />
+      <label for="register-password-repeat">Repeat password:</label>
+      <input type="password" name="register-password-repeat" id="register-password-repeat" />
       <input type="submit" value="Register" />
-    </div>
+    </form>
   )
 }

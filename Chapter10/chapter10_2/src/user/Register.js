@@ -18,11 +18,14 @@ export default function Register () {
     }, [dispatch, user])
 
     return (
-        <div>
-            Username: <input type="text" value={username} {...bindUsername} />
-            Password: <input type="password" value={password} {...bindPassword} />
-            Repeat password: <input type="password" value={passwordRepeat} {...bindPasswordRepeat} />
-            <input type="submit" value="Register" onClick={() => register(username, password)} disabled={username.length === 0 || password.length === 0 || password !== passwordRepeat} />
-        </div>
+        <form onSubmit={e => { e.preventDefault(); register(username, password) }}>
+            <label for="register-username">Username:</label>
+            <input type="text" value={username} {...bindUsername} name="register-username" id="register-username" />
+            <label for="register-password">Password:</label>
+            <input type="password" value={password} {...bindPassword} name="register-password" id="register-password" />
+            <label for="register-password-repeat">Repeat password:</label>
+            <input type="password" value={passwordRepeat} {...bindPasswordRepeat} name="register-password-repeat" id="register-password-repeat" />
+            <input type="submit" value="Register" disabled={username.length === 0 || password.length === 0 || password !== passwordRepeat} />
+        </form>
     )
 }

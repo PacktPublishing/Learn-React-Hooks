@@ -18,11 +18,14 @@ export default function CreatePost ({ user, posts, setPosts }) {
   }
 
   return (
-    <div>
+    <form onSubmit={e => { e.preventDefault(); handleCreate() }}>
       <div>Author: <b>{user}</b></div>
-      <div>Title: <input type="text" value={title} onChange={handleTitle} /></div>
+      <div>
+        <label for="create-title">Title:</label>
+        <input type="text" value={title} onChange={handleTitle} name="create-title" id="create-title" />
+      </div>
       <textarea value={content} onChange={handleContent} />
-      <input type="submit" value="Create" onClick={handleCreate} />
-    </div>
+      <input type="submit" value="Create" />
+    </form>
   )
 }

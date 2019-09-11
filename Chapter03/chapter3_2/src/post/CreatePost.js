@@ -2,11 +2,14 @@ import React from 'react'
 
 export default function CreatePost ({ user }) {
   return (
-    <div>
+    <form onSubmit={e => e.preventDefault()}>
       <div>Author: <b>{user}</b></div>
-      <div>Title: <input type="text" /></div>
+      <div>
+        <label for="create-title">Title:</label>
+        <input type="text" name="create-title" id="create-title" />
+      </div>
       <textarea />
       <input type="submit" value="Create" />
-    </div>
+    </form>
   )
 }

@@ -37,11 +37,13 @@ export default function Login () {
   }
 
   return (
-    <div>
-      Username: <input type="text" value={username} onChange={handleUsername} />
-      Password: <input type="password" value={password} onChange={handlePassword} />
-      <input type="submit" value="Login" onClick={() => login(username, password)} disabled={username.length === 0} />
+    <form onSubmit={e => { e.preventDefault(); login(username, password) }}>
+      <label for="login-username">Username:</label>
+      <input type="text" value={username} onChange={handleUsername} name="login-username" id="login-username" />
+      <label for="login-password">Password:</label>
+      <input type="password" value={password} onChange={handlePassword} name="login-password" id="login-password" />
+      <input type="submit" value="Login" disabled={username.length === 0} />
       {loginFailed && <span style={{ color: 'red' }}>Invalid username or password</span>}
-    </div>
+    </form>
   )
 }

@@ -2,10 +2,12 @@ import React from 'react'
 
 export default function Login () {
   return (
-    <div>
-      Username: <input type="text" />
-      Password: <input type="password" />
+    <form onSubmit={e => e.preventDefault()}>
+      <label for="login-username">Username:</label>
+      <input type="text" name="login-username" id="login-username" />
+      <label for="login-password">Password:</label>
+      <input type="password" name="login-password" id="login-password" />
       <input type="submit" value="Login" />
-    </div>
+    </form>
   )
 }
