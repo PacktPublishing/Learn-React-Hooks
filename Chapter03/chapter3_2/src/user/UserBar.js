@@ -5,7 +5,7 @@ import Logout from './Logout'
 import Register from './Register'
 
 export default function UserBar () {
-  // const user = false
+  // const user = ''
   const user = 'Daniel Bugl'
 
   if (user) {
