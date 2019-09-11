@@ -10,7 +10,6 @@ export default class AddTodo extends React.Component {
 
     this.handleInput = this.handleInput.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
   }
 
   handleInput (e) {
