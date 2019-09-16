@@ -26,7 +26,7 @@
     "start:server": "npx json-server --watch server/db.json --port 4000 --routes server/routes.json",
     "start:client": "react-scripts start",
     "build": "react-scripts build",
-    "test": "npx concurrently \"npm run start:server\" \"npm run test:client\"",
+    "test": "react-scripts test",
     "test:nowatch": "npx concurrently --kill-others --success \"first\" \"npm run start:server\" \"npm run test:client -- --watchAll=false\"",
     "test:client": "react-scripts test",
     "eject": "react-scripts eject"

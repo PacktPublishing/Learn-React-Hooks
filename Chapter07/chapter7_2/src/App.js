@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import HeaderBar from './pages/HeaderBar'
 import PostPage from './pages/PostPage'
 import { ThemeContext, StateContext } from './contexts'
+import appReducer from './reducers'
 
 const routes = mount({
     '/': route({ view: <HomePage /> }),
@@ -13,52 +14,6 @@ const routes = mount({
         return { view: <PostPage id={req.params.id} /> }
     }),
 })
-
-function userReducer (state, action) {
-    switch (action.type) {
-        case 'LOGIN':
-        case 'REGISTER':
-            return action.username
-        
-        case 'LOGOUT':
-            return ''
-        
-        default:
-            return state
-    }
-}
-
-function postsReducer (state, action) {
-    switch (action.type) {
-        case 'FETCH_POSTS':
-            return action.posts
-
-        case 'CREATE_POST':
-            const newPost = { title: action.title, content: action.content, author: action.author }
-            return [ newPost, ...state ]
-        
-        default:
-            return state
-    }
-}
-
-function errorReducer (state, action) {
-    switch (action.type) {
-        case 'POSTS_ERROR':
-            return 'Failed to fetch posts'
-
-        default:
-            return state
-    }
-}
-
-function appReducer (state, action) {
-    return {
-        user: userReducer(state.user, action),
-        posts: postsReducer(state.posts, action),
-        error: errorReducer(state.error, action)
-    }
-}
 
 export default function App () {
     const [ theme, setTheme ] = useState({
