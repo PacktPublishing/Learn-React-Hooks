@@ -24,7 +24,7 @@ export default function CreatePost () {
     <form onSubmit={e => { e.preventDefault(); handleCreate() }}>
       <div>Author: <b>{user}</b></div>
       <div>
-        <label for="create-title">Title:</label>
+        <label htmlFor="create-title">Title:</label>
         <input type="text" value={title} onChange={handleTitle} name="create-title" id="create-title" />
       </div>
       <textarea value={content} onChange={handleContent} />
