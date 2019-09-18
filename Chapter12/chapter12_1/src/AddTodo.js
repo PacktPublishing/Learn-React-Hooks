@@ -14,12 +14,6 @@ export default function AddTodo ({ addTodo }) {
     }
   }
 
-  function handleKeyDown (e) {
-    if (e.key === 'Enter') {
-      handleAdd()
-    }
-  }
-
   return (
     <form onSubmit={e => { e.preventDefault(); handleAdd() }}>
       <input
