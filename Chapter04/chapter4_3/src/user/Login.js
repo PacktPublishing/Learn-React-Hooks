@@ -8,7 +8,7 @@ export default function Login ({ dispatch }) {
   }
 
   return (
-    <form onSubmit={e => { e.preventDefault(); setUser(username) }}>
+    <form onSubmit={e => { e.preventDefault(); dispatch({ type: 'LOGIN', username }) }}>
       <label htmlFor="login-username">Username:</label>
       <input type="text" value={username} onChange={handleUsername} name="login-username" id="login-username" />
       <label htmlFor="login-password">Password:</label>
