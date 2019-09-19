@@ -19,7 +19,7 @@ export default function Register () {
         if (user && user.data) {
             dispatch({ type: 'REGISTER', username: user.data.username })
         }
-    }, [ user, dispatch ])
+    }, [user])
 
     function handleUsername (evt) {
         setUsername(evt.target.value)
