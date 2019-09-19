@@ -15,7 +15,7 @@
     "react-hookedup": "^0.1.1",
     "react-navi": "^0.12.7",
     "react-request-hook": "^2.0.1",
-    "react-scripts": "^3.1.1"
+    "react-scripts": "^2.1.8"
   },
   "scripts": {
     "start": "npx concurrently \"npm run start:server\" \"npm run start:client\"",

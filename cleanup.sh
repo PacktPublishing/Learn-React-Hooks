@@ -9,7 +9,7 @@ for ch in *; do
     cd $ex
     rm -rf node_modules
     rm yarn.lock yalc.lock package-lock.json
-    npm install --save react@^16.9.0 react-dom@^16.9.0 react-scripts@^3.1.1
+    npm install --save react@^16.9.0 react-dom@^16.9.0 react-scripts@^2.1.8
     npm install
     cd ..
   done
