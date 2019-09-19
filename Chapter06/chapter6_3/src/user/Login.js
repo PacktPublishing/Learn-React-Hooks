@@ -26,7 +26,7 @@ export default function Login () {
     if (user && user.error) {
       setLoginFailed(true)
     }
-  }, [user])
+  }, [ user, dispatch ])
 
   function handleUsername (evt) {
     setUsername(evt.target.value)
