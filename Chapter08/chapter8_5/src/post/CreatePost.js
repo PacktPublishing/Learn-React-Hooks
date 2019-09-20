@@ -41,6 +41,7 @@ export default function CreatePost () {
 
   useEffect(() => {
     if (post && post.data) {
+      dispatch({ type: 'CREATE_POST', ...post.data })
       navigation.navigate(`/view/${post.data.id}`)
     }
   }, [post])
@@ -53,7 +54,6 @@ export default function CreatePost () {
 
   function handleCreate () {
     createPost({ title, content, author: user })
-    dispatch({ type: 'CREATE_POST', title, content, author: user })
   }
 
   return (
