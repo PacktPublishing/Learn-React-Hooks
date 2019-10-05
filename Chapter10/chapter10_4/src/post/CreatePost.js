@@ -38,8 +38,8 @@ export default function CreatePost () {
         <input type="text" value={title} {...bindTitle} name="create-title" id="create-title" />
       </div>
       <textarea value={content} onChange={handleContent} />
-      <button onClick={undo} disabled={!canUndo}>Undo</button>
-      <button onClick={redo} disabled={!canRedo}>Redo</button>
+      <button type="button" onClick={undo} disabled={!canUndo}>Undo</button>
+      <button type="button" onClick={redo} disabled={!canRedo}>Redo</button>
       <input type="submit" value="Create" />
     </form>
   )
