@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-hookedup": "^0.1.1",
+    "react-hookedup": "^0.1.2",
     "react-scripts": "^2.1.8"
   },
   "scripts": {
