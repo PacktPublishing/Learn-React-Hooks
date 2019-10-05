@@ -5,7 +5,7 @@ export default function UseMergeState () {
   const { state, setState } = useMergeState({ loaded: true, counter: 0 })
   
   function handleClick () {
-    setState({ ...state, counter: state.counter + 1 })
+    setState({ counter: state.counter + 1 })
   }
 
   return (
