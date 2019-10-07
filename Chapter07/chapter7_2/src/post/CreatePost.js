@@ -31,7 +31,6 @@ export default function CreatePost () {
 
   function handleCreate () {
     createPost({ title, content, author: user })
-    dispatch({ type: 'CREATE_POST', title, content, author: user })
   }
 
   return (
