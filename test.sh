@@ -7,7 +7,7 @@ for ch in *; do
     test -d "$ex" || continue
     echo "entering $ex"
     cd $ex
-    npm run test:nowatch
+    cross-env CI=true npm run test:nowatch
     cd ..
     echo
   done
